@@ -6,64 +6,7 @@ namespace SimpleFunctions
     {
         static void Main(string[] args)
         {
-            int[] randomArray = GetRandom(5, 0, 10);
-            Write(randomArray);
-            double toFaringate = ToFaringate(36.6);
-            Console.WriteLine("Введите слово для проверки на палиндром: ");
-            string word = Console.ReadLine();
-            bool isPalindrom = IsPalindrom(word);
-            int summElement = GetSummElement(randomArray);
-            Console.WriteLine(summElement);
-            Console.WriteLine("введите число: ");
-            int digit = int.Parse(Console.ReadLine());
-            int countDigit = CountDigit(digit);
-            Console.WriteLine($"количество чисел в числе = {countDigit}");
-            string address = GetAddress("Тольятти", "Революционная", 30, 132);
-            Console.WriteLine(address);
-            bool isEven = IsEven(digit);
-            Console.WriteLine(isEven);
-            int factorial = Factorial(5);
-            Console.WriteLine($"факториал 5 = {factorial}");
-            Console.WriteLine("Введите символ: ");
-            char symbol = Console.ReadKey().KeyChar;
-            int countContains = GetCountContains(word, symbol);
-            Console.WriteLine($"этот символ встречается в слове {countContains} раз");
-            int a = 15;
-            int b = 3;
-            Console.WriteLine($"{a}, {b}");
-            SwapDigit(ref a, ref b);
-            Console.WriteLine($"число после функции swap: {a}, {b}");
-            Console.WriteLine("Введите слово: ");
-            string word1 = Console.ReadLine();
-            Console.WriteLine("ВВедите слово: ");
-            string word2 = Console.ReadLine();
-            SwapSting(ref word1, ref word2);
-            Console.WriteLine($"слова после фукции swap: {word1}, {word2}");
-            Console.WriteLine("введите символ 1: ");
-            char simbol1 = Console.ReadKey().KeyChar;
-            Console.WriteLine();
-            Console.WriteLine("введите символ 2: ");
-            char simbol2 = Console.ReadKey().KeyChar;
-            Console.WriteLine();
-            Console.WriteLine($"символы после функции swap: {simbol1}, {simbol2}");
-        }
-        static int[] GetRandom(int size, int min, int max)
-        {
-            Random rnd = new Random();
-            int[] rndArray = new int[size];
-            for (int i = 0; i < rndArray.Length; i++)
-            {
-                rndArray[i] = rnd.Next(min, max);
-            }
-            return rndArray;
-        }
-        static void Write(int[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write($"{array[i]} ");
-            }
-            Console.WriteLine();
+            
         }
         static double ToFaringate(double celsius)
         {

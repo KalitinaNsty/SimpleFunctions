@@ -23,15 +23,6 @@ namespace SimpleFunctions
             }
             return true;
         }
-        static int GetSummElement(int[] array)
-        {
-            int summ = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                summ += array[i];
-            }
-            return summ;
-        }
         static int CountDigit(int number)
         {
             int count = 1;

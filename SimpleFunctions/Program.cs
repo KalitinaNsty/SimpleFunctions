@@ -6,7 +6,17 @@ namespace SimpleFunctions
     {
         static void Main(string[] args)
         {
-            
+            int evenNumb = GenEvenNumb(out int result);
+            Console.WriteLine(evenNumb);
+            int montheNumber = int.Parse(Console.ReadLine());
+            string season = DoSeason(montheNumber);
+            Console.WriteLine(season);
+            Console.WriteLine("сумма вклада, савка, месяц");
+            int summ = int.Parse(Console.ReadLine());
+            int bet = int.Parse(Console.ReadLine());
+            int monthe = int.Parse(Console.ReadLine());
+            double deposit = Deposit(summ, bet, monthe);
+            Console.WriteLine(deposit);
         }
         static double ToFaringate(double celsius)
         {
@@ -82,6 +92,51 @@ namespace SimpleFunctions
             char refChar = simbol1;
             simbol1 = simbol2;
             simbol2 = refChar;
+        }
+        static int GenEvenNumb(out int result)
+        {
+            Random rnd = new Random();
+            result = rnd.Next(0, 100);
+            if (result % 2 != 0)
+            {
+                result += 1;
+            }
+            return result;
+        }
+        static string DoSeason(int monthe)
+        {
+            string season;
+            switch (monthe)
+            {
+                case 12:
+                case 1:
+                case 2:
+                    season = "зима";
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    season = "весна";
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    season = "лето";
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    season = "осень";
+                    break;
+                default: return "sorry";
+            }
+            return season;
+        }
+        static double Deposit(int summ, int bet, int monthe)
+        {
+            bet = bet / 100;
+            double depositAmonunt = (summ * bet * monthe) / 365;
+            return depositAmonunt;
         }
     }
 }

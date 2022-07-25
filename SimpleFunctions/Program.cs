@@ -12,6 +12,11 @@ namespace SimpleFunctions
             int monthe = int.Parse(Console.ReadLine());
             int deposit = Deposit(summ, bet, monthe);
             Console.WriteLine(deposit);
+            Console.WriteLine("ВВедите два слова: ");
+            string word = Console.ReadLine();
+            string word2 = Console.ReadLine();
+            bool isAnagramm = IsAnagramm(word, word2);
+            Console.WriteLine(isAnagramm);
         }
         static double ToFaringate(double celsius)
         {
@@ -129,14 +134,28 @@ namespace SimpleFunctions
         }
         static int Deposit(int summ, int bet, int monthe)
         {
-            int depositCalcul = (summ * bet * monthe) / 365 + summ;
+            int depositCalcul = (summ * bet / 100) + summ;
             int montheRemains = monthe;
-            if (montheRemains > 0)
+            if (montheRemains > 1)
             {
-                depositCalcul += depositCalcul + ((summ * bet * monthe) / 365);
+                depositCalcul += depositCalcul * bet / 100;
                 montheRemains = montheRemains - 1;
             }
             return depositCalcul;
+        }
+        static bool IsAnagramm(string word1, string word2)
+        {
+            char[] wordArray = word1.ToCharArray();
+            char[] wordArray2 = word2.ToCharArray();
+            foreach (var analis in wordArray)
+            {
+
+            }
+            if (wordArray == wordArray2)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

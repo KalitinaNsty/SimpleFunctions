@@ -6,16 +6,11 @@ namespace SimpleFunctions
     {
         static void Main(string[] args)
         {
-            int evenNumb = GenEvenNumb(out int result);
-            Console.WriteLine(evenNumb);
-            int montheNumber = int.Parse(Console.ReadLine());
-            string season = DoSeason(montheNumber);
-            Console.WriteLine(season);
             Console.WriteLine("сумма вклада, савка, месяц");
             int summ = int.Parse(Console.ReadLine());
             int bet = int.Parse(Console.ReadLine());
             int monthe = int.Parse(Console.ReadLine());
-            double deposit = Deposit(summ, bet, monthe);
+            int deposit = Deposit(summ, bet, monthe);
             Console.WriteLine(deposit);
         }
         static double ToFaringate(double celsius)
@@ -93,7 +88,7 @@ namespace SimpleFunctions
             simbol1 = simbol2;
             simbol2 = refChar;
         }
-        static int GenEvenNumb(out int result)
+        static void GenEvenNumb(out int result)
         {
             Random rnd = new Random();
             result = rnd.Next(0, 100);
@@ -101,9 +96,9 @@ namespace SimpleFunctions
             {
                 result += 1;
             }
-            return result;
+            Console.WriteLine(result); 
         }
-        static string DoSeason(int monthe)
+        static string GetSeason(int monthe)
         {
             string season;
             switch (monthe)
@@ -132,11 +127,16 @@ namespace SimpleFunctions
             }
             return season;
         }
-        static double Deposit(int summ, int bet, int monthe)
+        static int Deposit(int summ, int bet, int monthe)
         {
-            bet = bet / 100;
-            double depositAmonunt = (summ * bet * monthe) / 365;
-            return depositAmonunt;
+            int depositCalcul = (summ * bet * monthe) / 365 + summ;
+            int montheRemains = monthe;
+            if (montheRemains > 0)
+            {
+                depositCalcul += depositCalcul + ((summ * bet * monthe) / 365);
+                montheRemains = montheRemains - 1;
+            }
+            return depositCalcul;
         }
     }
 }

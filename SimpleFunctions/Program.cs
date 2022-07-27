@@ -6,12 +6,6 @@ namespace SimpleFunctions
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("сумма вклада, савка, месяц");
-            int summ = int.Parse(Console.ReadLine());
-            int bet = int.Parse(Console.ReadLine());
-            int monthe = int.Parse(Console.ReadLine());
-            int deposit = Deposit(summ, bet, monthe);
-            Console.WriteLine(deposit);
             Console.WriteLine("ВВедите два слова: ");
             string word = Console.ReadLine();
             string word2 = Console.ReadLine();
@@ -150,16 +144,16 @@ namespace SimpleFunctions
                 word2.ToLower();
                 int count = 0;
                 int coun2 = 0;
-                for (int i = 0, j = 0; j < word1.Length; j++)
+                for (int i = 0; i < word1.Length; i++)
                 {
-                    if (word1[i] == word1[j++])
+                    if (word1[i] == word2[i++])
                     {
                         count++;
                     }
                 }
-                for (int i = 0, j = 0; i < word2.Length; i++)
+                for (int i = 0; i < word2.Length; i++)
                 {
-                    if (word2[i] == word1[j++])
+                    if (word2[i] == word1[i++])
                     {
                         coun2++;
                     }

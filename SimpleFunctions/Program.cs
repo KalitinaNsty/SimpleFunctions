@@ -135,25 +135,40 @@ namespace SimpleFunctions
         static int Deposit(int summ, int bet, int monthe)
         {
             int depositCalcul = (summ * bet / 100) + summ;
-            int montheRemains = monthe;
-            if (montheRemains > 1)
+            while (monthe > 1)
             {
                 depositCalcul += depositCalcul * bet / 100;
-                montheRemains = montheRemains - 1;
+                monthe = monthe - 1;
             }
             return depositCalcul;
         }
         static bool IsAnagramm(string word1, string word2)
         {
-            char[] wordArray = word1.ToCharArray();
-            char[] wordArray2 = word2.ToCharArray();
-            foreach (var analis in wordArray)
+            if (word1.Length == word2.Length)
             {
+                word1.ToLower();
+                word2.ToLower();
+                int count = 0;
+                int coun2 = 0;
+                for (int i = 0, j = 0; j < word1.Length; j++)
+                {
+                    if (word1[i] == word1[j++])
+                    {
+                        count++;
+                    }
+                }
+                for (int i = 0, j = 0; i < word2.Length; i++)
+                {
+                    if (word2[i] == word1[j++])
+                    {
+                        coun2++;
+                    }
 
-            }
-            if (wordArray == wordArray2)
-            {
-                return true;
+                }
+                if (count == coun2)
+                {
+                    return true;
+                }
             }
             return false;
         }

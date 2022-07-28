@@ -173,6 +173,9 @@ namespace SimpleFunctions
                 return false;
             }
         }
-        //static bool IsPassword()
+        static bool IsPassword()
+        {
+            return false;
+        }
     }
 }

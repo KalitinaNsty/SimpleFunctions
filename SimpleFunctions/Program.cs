@@ -6,6 +6,8 @@ namespace SimpleFunctions
     {
         static void Main(string[] args)
         {
+            double deposit = Deposit(1000, 2, 4);
+            Console.WriteLine(deposit);
             Console.WriteLine("ВВедите два слова: ");
             string word = Console.ReadLine();
             string word2 = Console.ReadLine();
@@ -126,45 +128,51 @@ namespace SimpleFunctions
             }
             return season;
         }
-        static int Deposit(int summ, int bet, int monthe)
+        static double Deposit(int summ, int bet, int monthe)
         {
-            int depositCalcul = (summ * bet / 100) + summ;
-            while (monthe > 1)
+            double depositCalcul = summ;
+            while (monthe > 0)
             {
                 depositCalcul += depositCalcul * bet / 100;
                 monthe = monthe - 1;
             }
             return depositCalcul;
         }
+        static int CountContains(char letter, string word)
+        {
+            int count = 0;
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word[i] == letter)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
         static bool IsAnagramm(string word1, string word2)
         {
             if (word1.Length == word2.Length)
             {
-                word1.ToLower();
-                word2.ToLower();
-                int count = 0;
-                int coun2 = 0;
-                for (int i = 0; i < word1.Length; i++)
+                word1 = word1.ToLower();
+                word2 = word2.ToLower();
+                string template = word1;
+                for (int i = 0; i < template.Length; i++)
                 {
-                    if (word1[i] == word2[i++])
+                    int currentCharWordCount = CountContains(word1[i], word1);
+                    int currentCharCount2 = CountContains(word1[i], word2);
+                    if (currentCharWordCount != currentCharCount2)
                     {
-                        count++;
+                        return false;
                     }
                 }
-                for (int i = 0; i < word2.Length; i++)
-                {
-                    if (word2[i] == word1[i++])
-                    {
-                        coun2++;
-                    }
-
-                }
-                if (count == coun2)
-                {
-                    return true;
-                }
+                return true;
             }
-            return false;
+            else 
+            {
+                return false;
+            }
         }
+        //static bool IsPassword()
     }
 }

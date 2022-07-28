@@ -173,8 +173,61 @@ namespace SimpleFunctions
                 return false;
             }
         }
-        static bool IsPassword()
+        static string GetAvalibleSimbol()
         {
+            string avalibleSimbol = "";
+            for (int i = 'a'; i <= 'z'; i++)
+            {
+                avalibleSimbol += (char)i;
+                avalibleSimbol += char.ToUpper(((char)i));
+            }
+            for (int i = 0; i <= 9; i++)
+            {
+                avalibleSimbol += i;
+            }
+            avalibleSimbol += '_' + '%';
+            return avalibleSimbol;
+        }
+        static bool IsCorrectPassword(string password)
+        {
+            if (password.Length < 8)
+            {
+                return false;
+            }
+            string avalibleSimbol = GetAvalibleSimbol();
+            for (int i = 0; i < password.Length; i++)
+            {
+                char curentLetter = password[i];
+                bool contains = Contains(password[i], avalibleSimbol);
+                if (contains == false)
+                {
+                    return false;
+                }
+            }
+            int upperCount = 0;
+            for (int i = 0; i < password.Length; i++)
+            {
+                char.IsUpper(password[i]);
+                if (char.IsUpper(password[i]))
+                {
+                    upperCount++;
+                }
+            }
+            if (upperCount == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        static bool Contains(char r, string word)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (r == word[i])
+                {
+                    return true;
+                }
+            }
             return false;
         }
     }

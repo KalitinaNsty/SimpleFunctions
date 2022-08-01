@@ -6,13 +6,7 @@ namespace SimpleFunctions
     {
         static void Main(string[] args)
         {
-            double deposit = Deposit(1000, 2, 4);
-            Console.WriteLine(deposit);
-            Console.WriteLine("ВВедите два слова: ");
-            string word = Console.ReadLine();
-            string word2 = Console.ReadLine();
-            bool isAnagramm = IsAnagramm(word, word2);
-            Console.WriteLine(isAnagramm);
+            
         }
         static double ToFaringate(double celsius)
         {
@@ -179,7 +173,7 @@ namespace SimpleFunctions
             for (int i = 'a'; i <= 'z'; i++)
             {
                 avalibleSimbol += (char)i;
-                avalibleSimbol += char.ToUpper(((char)i));
+                avalibleSimbol += char.ToUpper((char)i);
             }
             for (int i = 0; i <= 9; i++)
             {
@@ -229,6 +223,19 @@ namespace SimpleFunctions
                 }
             }
             return false;
+        }
+        static string GetEncryption(string word, int key)
+        {
+            string newWord = "";
+            for (int i = 0; i < word.Length; i++)
+            {
+                char newChar = word[i];
+                int code = (int)newChar;
+                code = code + key;
+                newChar = (char)code;
+                newWord += newChar; 
+            }
+            return newWord;
         }
     }
 }

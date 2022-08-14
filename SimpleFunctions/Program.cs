@@ -6,7 +6,7 @@ namespace SimpleFunctions
     {
         static void Main(string[] args)
         {
-            
+
         }
         static double ToFaringate(double celsius)
         {
@@ -91,7 +91,7 @@ namespace SimpleFunctions
             {
                 result += 1;
             }
-            Console.WriteLine(result); 
+            Console.WriteLine(result);
         }
         static string GetSeason(int monthe)
         {
@@ -162,7 +162,7 @@ namespace SimpleFunctions
                 }
                 return true;
             }
-            else 
+            else
             {
                 return false;
             }
@@ -233,9 +233,35 @@ namespace SimpleFunctions
                 int code = (int)newChar;
                 code = code + key;
                 newChar = (char)code;
-                newWord += newChar; 
+                newWord += newChar;
             }
             return newWord;
+        }
+        static Season SeasonByMonth(int month)
+        {
+            Season season;
+            switch (month)
+            {
+                case 12:
+                case 1:
+                case 2:
+                    season = Season.winter;
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    season = Season.spring;
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    season = Season.summer;
+                    break;
+                default:
+                    season = Season.autumn;
+                    break;
+            }
+            return season;
         }
     }
 }

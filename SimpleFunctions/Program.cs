@@ -263,5 +263,31 @@ namespace SimpleFunctions
             }
             return season;
         }
+        static Season SeasonByMonthName(Month month)
+        {
+            Season season;
+            switch (month)
+            {
+                case Month.December:
+                case Month.February:
+                case Month.January:
+                    season = Season.winter;
+                    break;
+                case Month.March:
+                case Month.April:
+                case Month.May:
+                    season = Season.spring;
+                    break;
+                case Month.June:
+                case Month.Jule:
+                case Month.August:
+                    season = Season.summer;
+                    break;
+                default:
+                    season = Season.autumn;
+                    break;
+            }
+            return season;
+        }
     }
 }
